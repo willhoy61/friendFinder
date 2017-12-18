@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Friend Finder</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	
+	<div class = "container-fluid">
+		<div class="jumbotron">
+  	<h1 class="display-3">Friend Finder</h1>
+  	<p class="lead"> Answer a few basic questions.</p>
+  	<br>
+  	<p class = "lead"> Then find the friend with the greatest compatibility!</p>
+  	<p class="lead">
+    <a  href ="/survey" class="btn btn-primary btn-lg" role="button">Go to Survey</a>
+ 	</p>
+	</div>
+</div>
+<div class ="row justify-content-start">
+	<div class ="col-3">
+<div class="list-group">
+  <a class="list-group-item list-group-item-action active" id ="friend">
+    API Friend List
+  </a>
+  <a href="https://github.com/willhoy61/friendFinder" class="list-group-item list-group-item-action">GitHub Repo</a>
+  </div>
+</div>
+</div>
+<div class ="row justify-content-start">
+<div class ="col-3" id ="friendShow">
+</div>
+
+  </div>
+
+<script type ="text/javascript">
+  $("#friend").on("click", function() {
+    $.get("/api/" + Friends, function(data) {
+      console.log(data);
+$("#friendShow").append(friends.name.photos.scores);
+	});
+	});
+
+</script>
+
+</body>
+</html>
