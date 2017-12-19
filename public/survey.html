@@ -3,6 +3,8 @@
 <head>
 	<title>Survey</title>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
@@ -15,10 +17,10 @@
 		
 	<div class="form-group">
     <label for="exampleInputEmail1">Name (Required)</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
+    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="name">
     <div class="form-group">
     <label for="exampleInputEmail1">Link to Photo Image (Required)</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name">
+    <input type="link" class="form-control" id="photo" aria-describedby="emailHelp" placeholder="photo">
   	</div>
 </div>
 	
@@ -30,7 +32,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q1">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -49,7 +51,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q2">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -68,7 +70,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q3">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -87,7 +89,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q4">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -106,7 +108,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q5">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -125,7 +127,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q6">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -144,7 +146,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q7">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -163,7 +165,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q8">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -182,7 +184,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q9">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -201,7 +203,7 @@
 		 <div class="form-group">
 		 	<div class ="row">
 		 		<div class ="col-2">
-    				<select class="form-control" id="exampleFormControlSelect1">
+    				<select class="form-control" id="q10">
       					<option>1 (strongly Agree)</option>
       					<option>2</option>
       					<option>3</option>
@@ -214,6 +216,9 @@
 		</div>
 	</div>
 </div>
+
+<button class="btn btn-primary" type="submit" id ="findMatch">Find match</button>
+
 <div class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -235,7 +240,27 @@
     </div>
   </div>
 </div>
+</div>
+<script type ="text/javascript">
 
+	$("#findMatch").on("click", function(event) {
+		event.preventDefault();
+
+		var newFriend = {
+			name: $("#name").val().trim(),
+			picture: $("#photo").val(),
+			scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(),$("#q4").val(),$("#q5").val(),$("#q6").val(),$("#q7").val(),$("#q8").val(),$("#q9").val(),$("#q10").val()]
+		};
+		console.log(newFriend);
+
+	 $.post("/api/new", newFriend)
+      .done(function(data) {
+        console.log(data);
+        alert("Adding character...");
+      });
+    });
+
+</script>
 
 </body>
 </html>

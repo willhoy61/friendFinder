@@ -16,7 +16,7 @@
   	<br>
   	<p class = "lead"> Then find the friend with the greatest compatibility!</p>
   	<p class="lead">
-    <a  href ="/survey" class="btn btn-primary btn-lg" role="button">Go to Survey</a>
+    <a  href ="/survey" type ="button" class="btn btn-primary btn-lg" role="button">Go to Survey</a>
  	</p>
 	</div>
 </div>
@@ -36,13 +36,7 @@
 
   </div>
 
-<script type ="text/javascript">
-  $("#friend").on("click", function() {
-    $.get("/api/" + Friends, function(data) {
-      console.log(data);
-$("#friendShow").append(friends.name.photos.scores);
-	});
-	});
+    
 
 </script>
 
