@@ -9,7 +9,7 @@ var PORT = process.env.PORT || 3000;
 
 
 // express app data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //module import htmlRoute
