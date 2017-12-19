@@ -1,23 +1,17 @@
 // htmlRoutes.js file should include two routes:
-
-var Con = require("/apiRoutes.js");
-function getPath() {
+var path = require("path");
 // A GET Route to /survey which should display the survey page.
+
+module.exports = function(app) {
+
 app.get("/add", function(req, res) {
-  res.sendFile(path.join(__dirname, "survey.html"));
+  res.sendFile(path.join(__dirname, "../public/survey.html"));
 });
-
-
 
 // A default, catch-all route that leads to home.html which displays the home page.
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "home.html"));
+  res.sendFile(path.join(__dirname, "../public/home.html"));
 });
 
-}
+};
 
-module.exports = {
-	getPath: function(res) {
-		return res;
-	}
-}
