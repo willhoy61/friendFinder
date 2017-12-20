@@ -17,7 +17,7 @@ app.post("/api/friends", function(req, res) {
 
 	newFriend.push(friends);
 
-	res.json(newFriend);
+	res.json(true);
 });
 
 };
